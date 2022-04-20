@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //createElement
+        //appendChild
+        //createTextNode
+
+        // h3태그, hello world의 내용을 넣은 태그를 문서 객체로 제작 > body 추가
+        var h3 = document.createElement("h3");
+        var text = document.createTextNode("hello world");
+
+        h3.appendChild(text);
+
+        
+        //h3 css 글자색 흰색, 배경검정
+        h3.style.color = 'white';
+        // h3.style.backgroundColor = 'black';
+        // h3.style['background-color'] = 'blue';
+        h3['style']['background-color'] = 'blue';
+
+        // h3 data-rno = 10
+        //문서객체들 속성 readonly
+        // h3['data-rno'] = 10;
+        //일반 객체들은 이렇게 하면되는데...
+        var o = {};
+        o['data-rno'] = 10;
+        console.log(o);
+        console.log(h3);
+        
+        // h3['data-rno'] = 10; 이거대신
+        //문서객체에 값을 주려면 setAttribute
+        h3.setAttribute("data-rno", 10);
+
+        //화면에보이게
+        window.onload = function(){
+            document.body.appendChild(h3);  
+        }
+    </script>
+</body>
+</html>
