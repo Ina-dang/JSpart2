@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {border : solid 1px black; padding : 15px}
+    </style>
+</head>
+<body onclick="alert(0)">
+
+    <h2 id="id1">hello 1</h2>
+    <h2 id="id2">hello 2</h2>
+
+    <!-- 중첩된 태그에 같은 이벤트 속성이 발동할 경우
+    이벤트는 전파(properation)됨
+이때 전파되는 이벤트순서틑 하위 > 상위태그 순서로 전달
+
+버블링 : 하위 > 상위
+캡쳐링 : 상위 > 하위
+-->
+    <div onclick="alert(1)">
+        <!-- <div id="middle" onclick="alert(2)//; event.stopPropagation()" > -->
+        <div id="middle">
+            <div onclick="alert(3)">
+                <div onclick="alert(4)">click me</div>
+            </div>
+        </div>
+    </div> 
+<!-- 겹치는 영역에는 가장 바깥쪽에 addEventListener-->
+    <script>
+        //click : 이벤트 이름(타입)
+        //onclick 이벤트속성
+        var h2_1 = document.getElementById("id1");
+
+        h2_1.onclick = function(){
+            alert(5);
+        }
+        h2_1.addEventListener("click", function(e){
+            console.log(e);
+            console.log(event);
+            alert("10");
+        })
+        h2_1.addEventListener("click", function(e){
+            console.log(e);
+            console.log(event);
+            alert("20");
+        })
+
+        document.getElementById("middle").onclick = function(){
+            alert("2");
+            // event.stopImmediatePropagation();
+            // return false;
+        }
+
+        // h2_1.click();
+
+        //event trigger
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //mouse event >>
+        //click
+        //dblclick => 더블클릭
+        //mousemove
+        //mouseover | mouseout
+        //mouseenter / mouseleave
+
+        //keyboard event >.
+        //keypress, keydown, keyup
+
+        //input
+        //blur/ focus
+        //change, select
+        //submit, reset 
+    // => 문서객체의 하위속성
+
+        //event bind
+
+        //DOM Level 0>>
+        //inline, 기본 이벤트
+        //DOM Level 2>>
+        //addEventListener, attachEvent(window only => 안씀)
+    </script>
+</head>
+<body>
+    <h1 id="h1">click me</h1>    
+    <h2 onclick="console.log(10)"> click me inline</h2>
+    <script>
+        const h1 = document.getElementById("h1"); //object
+        //brower object, dom 속성 중 on 으로 시작되는 속성을 이벤트 속성
+        /*for(var i in h1){
+            document.write(i + "" + h1[i], "<br>");
+        }*/
+
+        //eventListener(Handler) : event 동작 시 실행할 함수
+        h1.onclick = function(){
+            //익명에서도 이벤트 확인/제어 가능
+            console.log(event)
+            alert(this.innerHTML)
+        }
+        h1.onclick = function(){
+            alert(2)
+        }
+        h1.onclick = myfunc;
+        function myfunc(e){
+            console.log(e);
+            console.log(event); //event라는 이름의 객체가 존재중
+            //그래서 e라는 파라미터 줄 필요가 없다 event랑 결과가 똑같이 때문
+
+            alert("함수");
+        }
+        // myfunc();
+    </script>
+</body>
+</html>
