@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            console.log($("input:hidden").val());
+            $("button:first").click(function(){
+                $("p").hide(500);
+            })
+            $("button:eq(1)").click(function(){
+                $("p").show(100);
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <input type="text" value="1234">
+    <input type="hidden" value="1234">
+    <button>p태그숨기기</button>
+    <button>p태그보이기</button>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+    <p>hello world</p>
+</body>
+</html>
