@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+            // css(string) : getter // return  type >> String
+            // css(String, String): setter // return type >> jQuery object
+            // css(object)
+            // css(string, function)
+        $(function(){
+            var colors = ["red", "orange", "green", "blue", "purple"];
+
+            // $("h3").each(function(i){
+                //     $(this).css("color", colors[i]);
+                // })
+                
+            //제이쿼리 오브젝트 순환객체
+            // $("h3").css("color",function(i){
+            //     return colors[i];
+            // }).attr("title", function(i){
+            //     return colors[i];
+            // }).attr("title", function(i,v){
+            //     return "색상 : " + v;
+            // }).one("click", function(){
+            //     alert($(this).attr("title"));
+            // })
+
+            //h3 클릭시 현재 자신의 title 값을 alert로 출력하는 이벤트 부여
+            //단 위의 이벤트는 한번만 동작해야함
+            $("h3").css("color", function(i){
+                return colors[i];
+            }).attr("title", function(i){
+                return colors[i]
+            }).click(function(){
+            alert($(this).attr("title"));
+            $(this).off();
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <h3>1</h3>
+    <h3>2</h3>
+    <h3>3</h3>
+    <h3>4</h3>
+    <h3>5</h3>
+</body>
+</html>
