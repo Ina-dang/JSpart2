@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //취미 선택 시 해당 취미 텍스트 파란색 취미들을 #hobby에 나열
+        $(function(){
+            $("div input").change(function(){
+                // $(this).parent().css("color", "blue");
+                // console.log($(this).parent().text());
+                // console.log($("div label").text());
+                // console.log($(this).is(":checked"));
+
+                // var str = "";
+                // $("div input").each(function(){
+                //     if($(this).is(":checked")){
+                //         str += $(this).parent().text() + " ";
+                //     }
+                // })
+                // $("#hobby").html(str);
+
+                // if($(this).is(":checked")){
+                //     $(this).parent().css("color", "blue");
+                // }
+                // else {
+                //     $(this).parent().css("color", "black");
+                // }
+
+                // $(this).parent().css("color", $(this).is(":checked") ? "blue" : "black");
+
+                // console.log($(this).prop("checked"));
+                // console.log($(this).is(":checked"));
+
+                // $(this).each(function(){
+                //     $(this).is(":checked");
+                // })
+
+                var flag = true;
+                var inputs = document.querySelectorAll("div input");
+                for (var i in inputs) {
+                    if(typeof inputs[i] == "object" && !$(inputs[i]).is(":checked")){
+                        flag = false;
+                        break;
+                    }
+                }
+                $("#all").prop("checked", flag);
+            });
+            // $("input").prop("checked",false);
+            $("#all").change(function(){
+                $("input").prop("checked", $(this).is(":checked"));
+            });
+        })
+    </script>
+</head>
+<body>
+    <label>전체선택<input type="checkbox" id="all"></label>
+    <div>
+        <label>등산<input type="checkbox" name="nobody" id="climb" checked></label>
+        <label>낚시<input type="checkbox" name="nobody" id="fishing" ch></label>
+        <label>당구<input type="checkbox" name="nobody" id="billiards"></label>
+        <label>산책<input type="checkbox" name="nobody" id="walk"></label>
+        <p id="hobby"></p>
+    </div>   
+</body>
+</html>
