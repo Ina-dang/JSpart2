@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션효과주기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+    <style>
+        .box1 {width: 100px ; height: 100px; background-color: lavender; transition: all 1s;}
+        .box1:hover {background: lightgreen; border-radius: 50%;}
+        .box3 {width: 100px; height: 100px; background-color: yellow;}
+    </style>
+<script>
+    $(function(){
+        $(".box2").css({width:"100px", height:"100px", background:"blue"})
+        .hover(function(){
+            $(this).animate({ "border-radius":"50%", "backgroundColor":"red"}, 1000);
+            // $(this).css("background", "red").css("border-radius", "50%");
+        },function(){
+            $(this).animate({"background-color":"blue", "border-radius":"0%"}, 1000);
+            // $(this).css("background", "blue").css("border-radius", "0%");
+        });
+
+        $(".box3").click(function(){
+            $(this).stop().animate({ 
+                width : 500, 
+                height : 500, 
+                backgroundColor: "black"
+            },1000)
+        }).dblclick(function(){
+            $(this).stop().animate({ width : 100, height : 100,  backgroundColor : "yellow"},1000)
+        });
+    })
+</script>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <hr>
+    <div class="box3"></div>
+</body>
+</html>
